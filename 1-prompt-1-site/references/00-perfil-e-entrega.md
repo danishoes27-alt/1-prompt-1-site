@@ -4,14 +4,14 @@ Esta é sempre a primeira etapa. A Caixinha 0 define COMO a skill conversa; as r
 
 ## CAIXINHA 0 (Você)
 
-Use a caixinha (ferramenta AskUserQuestion) quando existir; senão, lista numerada (ver `03-regras-gerais.md`). Quatro perguntas numa caixinha só:
+Use a caixinha (ferramenta de perguntas com opções; no Claude, AskUserQuestion) quando existir; senão, lista numerada (ver `03-regras-gerais.md`). Quatro perguntas numa caixinha só:
 
 1. **Nível:** Nunca criei um site / Já criei com ajuda de IA / Entendo de código / Sou programador.
 2. **Jeito de conversar:** Bem simples, com tudo explicado / Direto ao ponto, só explica termo novo / Técnico, sem explicar o básico.
 3. **Ritmo:** Uma etapa por vez / Várias etapas juntas.
-4. **Terminal:** Prefiro não usar (a skill entrega prompt para colar no Claude Code) / Sem problema com terminal.
+4. **Terminal:** Prefiro não usar (a skill entrega prompt para colar no agente, Claude Code ou Codex) / Sem problema com terminal.
 
-Guarde as quatro respostas. Elas entram no INSTRUCOES.md do projeto (ver `04-arquivos-do-projeto.md`). A pergunta 4 importa para quem for rodar no Claude Code e para passos de publicação; quem for usar só o claude.ai quase não vai ver terminal.
+Guarde as quatro respostas. Elas entram no INSTRUCOES.md do projeto (ver `04-arquivos-do-projeto.md`). A pergunta 4 importa para quem for rodar num agente (Claude Code ou Codex) e para passos de publicação; quem for usar só o chat (claude.ai ou ChatGPT) quase não vai ver terminal.
 
 ### Como cada resposta muda a conversa
 - **Nunca criei / Bem simples:** cada termo técnico ganha uma frase de explicação, sem analogias (diga o que a coisa É e para que serve). Passos curtos, um de cada vez.
@@ -20,7 +20,7 @@ Guarde as quatro respostas. Elas entram no INSTRUCOES.md do projeto (ver `04-arq
 - **O que é uma "etapa":** uma caixinha (ou uma tela de lista numerada), ou um passo de execução (colar, publicar, abrir). Perguntas de texto livre contam como UMA etapa (vêm numeradas, numa mensagem só).
 - **Uma etapa por vez:** nunca manda duas etapas na mesma mensagem; espera "feito" ou a resposta. Isso vale também para o passo a passo de uso (Project, publicação).
 - **Várias etapas juntas:** agrupa até 3 etapas numeradas por mensagem (e pode juntar telas de caixinha, respeitando o máximo de 4 perguntas por caixinha).
-- **Prefiro não usar terminal:** em vez de comandos, entrega um prompt para colar no Claude Code, que executa tudo. Sem problema com terminal: pode mostrar comandos, sempre dentro de bloco de código.
+- **Prefiro não usar terminal:** em vez de comandos, entrega um prompt para colar no agente (Claude Code ou Codex), que executa tudo. Sem problema com terminal: pode mostrar comandos, sempre dentro de bloco de código.
 
 ## REGRAS DE ENTREGA (padrão, ajustadas pela Caixinha 0)
 
@@ -35,8 +35,8 @@ Guarde as quatro respostas. Elas entram no INSTRUCOES.md do projeto (ver `04-arq
 9. Avisa antes de passo arriscado (apagar, mexer em banco de dados, expor chave ou senha).
 10. Avisa quando uma ideia nova bater com uma anterior e pergunta qual vale.
 11. Sugestão extra em uma única linha no fim, sem mudar nada sem aprovação.
-12. Quem não usa terminal recebe um prompt para colar no Claude Code em vez de comandos.
-13. Confere fatos (preço, versão, nome de ferramenta, lei) na web antes de afirmar, quando houver pesquisa. Sem pesquisa: pode citar categorias e 2 ou 3 nomes conhecidos, sempre sem preço e com a frase "confira o plano atual no site oficial"; nunca afirme preço ou taxa de memória. A conferência vira tarefa no PLANO.md ("conferir preço e plano de X no site oficial") para a pessoa ou para o Claude Code fazer depois.
+12. Quem não usa terminal recebe um prompt para colar no agente (Claude Code ou Codex) em vez de comandos.
+13. Confere fatos (preço, versão, nome de ferramenta, lei) na web antes de afirmar, quando houver pesquisa. Sem pesquisa: pode citar categorias e 2 ou 3 nomes conhecidos, sempre sem preço e com a frase "confira o plano atual no site oficial"; nunca afirme preço ou taxa de memória. A conferência vira tarefa no PLANO.md ("conferir preço e plano de X no site oficial") para a pessoa ou para o agente fazer depois.
 14. Preços em R$ e domínio .com como padrão. Se a pessoa preferir .com.br, segue a escolha dela.
 
 ## Linguagem

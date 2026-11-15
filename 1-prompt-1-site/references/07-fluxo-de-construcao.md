@@ -2,7 +2,7 @@
 
 Base de ideias destilada, com palavras próprias, do agent-skills de Addy Osmani (MIT). Créditos no NOTICE.md.
 
-Este fluxo fica DENTRO da skill e do prompt final. Ele NÃO depende de plugin nem dos comandos /spec, /plan e /build, porque eles não existem no claude.ai. Quando o ambiente tiver esses comandos, pode usá-los; quando não tiver, siga as etapas abaixo por escrito.
+Este fluxo fica DENTRO da skill e do prompt final. Ele NÃO depende de plugin nem dos comandos /spec, /plan e /build, porque eles não existem no claude.ai nem no ChatGPT. Quando o ambiente tiver esses comandos, pode usá-los; quando não tiver, siga as etapas abaixo por escrito.
 
 Ordem: **Especificar → Planejar → Construir aos poucos → Testar → Revisar → Desempenho → Lançar.** Só avança quando a etapa anterior foi conferida.
 
@@ -25,7 +25,7 @@ Ordem: **Especificar → Planejar → Construir aos poucos → Testar → Revisa
 - Faça o mais simples que cumpre o critério. Não acrescente recurso que ninguém pediu; ideia extra vai para a lista de sugestões.
 - Mexa só no que a tarefa pede (escopo curto). Se precisar mexer em outra coisa, avise.
 - Comece com padrões seguros (segurança ligada) e deixe o que está incompleto escondido ou desligado.
-- Faça de forma que dê para voltar atrás (guarde versões; no Claude Code, use controle de versão quando a pessoa aceitar).
+- Faça de forma que dê para voltar atrás (guarde versões; no Claude Code ou no Codex, use controle de versão quando a pessoa aceitar).
 - Depois de cada tarefa: rodar a conferência, atualizar o PLANO.md, seguir.
 
 ## 4. Testar

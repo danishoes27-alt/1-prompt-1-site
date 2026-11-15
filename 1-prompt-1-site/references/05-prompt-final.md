@@ -32,15 +32,15 @@ Se a triagem não fechou a tecnologia e a hospedagem, a Tarefa 1 do plano é "pr
 
 ## Final do prompt depende de onde roda
 
-**Claude Code** (a pessoa escolheu Claude Code na Caixinha 1):
+**Claude Code ou Codex** (a pessoa escolheu um agente na Caixinha 1):
 - O prompt pede para criar os arquivos do site NA PASTA DO PROJETO (estrutura de pastas definida no próprio prompt), rodar o site localmente para testar e mostrar como abrir.
-- Pede para criar/atualizar CLAUDE.md, os .md do projeto e manter o PLANO.md em dia.
-- Se a pessoa prefere não usar terminal: o prompt diz que o Claude Code executa tudo e que ela só precisa aprovar e abrir o endereço local que ele indicar.
+- Pede para criar/atualizar o arquivo de instruções (CLAUDE.md no Claude Code, AGENTS.md no Codex), os .md do projeto e manter o PLANO.md em dia.
+- Se a pessoa prefere não usar terminal: o prompt diz que o agente executa tudo e que ela só precisa aprovar e abrir o endereço local que ele indicar.
 
-**claude.ai** (a pessoa escolheu claude.ai):
+**claude.ai ou ChatGPT** (a pessoa escolheu o chat):
 - O prompt pede os arquivos prontos para baixar (HTML, CSS, JS e imagens provisórias), em artefato ou arquivo quando o ambiente permitir, e o **passo a passo para publicar** (hospedagem da triagem, domínio, HTTPS), uma etapa por vez.
 - Se o ambiente NÃO gerar arquivo para baixar: o prompt manda entregar cada arquivo num bloco de código com o nome na primeira linha, em ordem, poucos por mensagem, e a pessoa salva cada um na pasta combinada. Imagens provisórias são geradas pelo próprio código (cores e formas) e as fotos reais a pessoa coloca numa pasta `imagens/` com os nomes do CONTEUDO.md.
-- Onde o site precisa de servidor (login, pagamento, banco, painel), o claude.ai entrega o código e as instruções, mas a pessoa precisa de uma hospedagem que rode servidor; a skill indica o caminho (ou uma plataforma pronta) e registra a escolha.
+- Onde o site precisa de servidor (login, pagamento, banco, painel), o chat entrega o código e as instruções, mas a pessoa precisa de uma hospedagem que rode servidor; a skill indica o caminho (ou uma plataforma pronta) e registra a escolha.
 
 ## Cuidados ao montar
 - Linguagem do prompt: português do Brasil, imperativa e específica ("Crie", "Use", "Valide no servidor").
@@ -76,7 +76,7 @@ Você vai construir um site completo, seguindo este documento. Trabalhe uma tare
 ## 9. Critérios de pronto
 ...
 ## 10. Entrega
-(Claude Code: criar os arquivos na pasta do projeto / claude.ai: arquivos para baixar e passo a passo para publicar)
+(Claude Code ou Codex: criar os arquivos na pasta do projeto / claude.ai ou ChatGPT: arquivos para baixar e passo a passo para publicar)
 ```
 
 (No prompt entregue, troque o nome do site e todos os "..." pelo conteúdo real. Nenhum marcador pode sobrar.)

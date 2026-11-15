@@ -16,7 +16,7 @@ A Caixinha 1 é feita em TRÊS telas (o tipo de site tem opções demais para um
 
 **Tela C. Resto da Caixinha 1 (3 perguntas, numa caixinha só)**
 2. Objetivo principal: Chamar no WhatsApp / Comprar / Agendar / Preencher formulário.
-3. Onde vai rodar: Claude Code / claude.ai.
+3. Onde vai construir: claude.ai / Claude Code / ChatGPT / Codex. Se a skill já sabe onde está (ver "Onde a skill está rodando" no SKILL.md), só confirme.
 4. Conteúdo: Tenho tudo pronto / Tenho parte / A IA escreve e usa imagens provisórias.
    - "Tenho tudo pronto" ou "Tenho parte": pergunte em texto como o conteúdo vai chegar (colar no chat, planilha, pasta de fotos) e, se houver muitos itens (produtos, cardápio), combine UM arquivo de dados (planilha/CSV) mais uma pasta de imagens com nomes combinados.
 
