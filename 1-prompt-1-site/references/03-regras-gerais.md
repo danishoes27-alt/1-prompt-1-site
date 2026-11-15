@@ -37,8 +37,8 @@ Se a pessoa pedir para DESLIGAR um item de segurança, a conduta é a mesma (avi
 
 ## 2. Caixinha de múltipla escolha
 
-- Use a ferramenta **AskUserQuestion** (a caixinha) quando ela existir: de 1 a 4 perguntas por caixinha, de 2 a 4 opções por pergunta, e a opção "Outro" (texto livre) sempre disponível. Se a pessoa usar "Outro" para dizer algo que não está nas opções (por exemplo "só hospedagem", "só as cores"), trate a resposta normalmente.
-- Quando a ferramenta não existir (por exemplo, em alguns ambientes do claude.ai), use **lista numerada**: as PERGUNTAS são numeradas (1, 2, 3...) e as OPÇÕES têm letras (a, b, c, d), com as mesmas perguntas e as mesmas opções. A pessoa responde assim: "1b, 2a, 3c". Para marcar várias opções numa pergunta de múltipla escolha: "3acd" (ou "3 todas"). Texto livre vale no lugar de uma letra (equivale a "Outro").
+- Use a ferramenta de perguntas com opções (a caixinha; no Claude, **AskUserQuestion**) quando ela existir: de 1 a 4 perguntas por caixinha, de 2 a 4 opções por pergunta, e a opção "Outro" (texto livre) sempre disponível. Se a pessoa usar "Outro" para dizer algo que não está nas opções (por exemplo "só hospedagem", "só as cores"), trate a resposta normalmente.
+- Quando a ferramenta não existir (por exemplo, em alguns ambientes do claude.ai, no ChatGPT e no Codex), use **lista numerada**: as PERGUNTAS são numeradas (1, 2, 3...) e as OPÇÕES têm letras (a, b, c, d), com as mesmas perguntas e as mesmas opções. A pessoa responde assim: "1b, 2a, 3c". Para marcar várias opções numa pergunta de múltipla escolha: "3acd" (ou "3 todas"). Texto livre vale no lugar de uma letra (equivale a "Outro").
 - Perguntas de texto livre (nome do negócio, o que faz, cidade e público, páginas, contato) são feitas em texto, fora da caixinha, numeradas numa mensagem só; a pessoa pode responder tudo de uma vez.
 - Quando uma pergunta tiver mais de 4 opções, divida em duas etapas (primeiro um grupo, depois a escolha dentro do grupo).
 

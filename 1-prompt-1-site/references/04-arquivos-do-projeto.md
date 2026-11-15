@@ -14,7 +14,7 @@ No fim da triagem, depois da Rodada de Lei e Conduta e do "posso mandar os arqui
 | **PLANO.md** | Tarefas pequenas em ordem (uma por página ou por grupo de seções), o que já foi feito e o que falta, as pendências da pessoa e as conferências de fatos (`07-fluxo-de-construcao.md`). |
 | **DECISOES.md** | Histórico de mudanças e versões, decisões de lei e conduta e decisões de segurança, cada uma com data, o aviso dado e a escolha da pessoa. |
 | **EMAIL.md** | Só se houver e-mails (captação ou automáticos): ferramenta, isca, formulário, textos dos e-mails, SPF/DKIM/DMARC, regras de consentimento. |
-| **CLAUDE.md** | Só para quem roda no Claude Code: fica na raiz da pasta do projeto (modelo abaixo). Não faz parte da lista de arquivos do Project do claude.ai. |
+| **CLAUDE.md** ou **AGENTS.md** | Só para quem roda num agente: CLAUDE.md no Claude Code, AGENTS.md no Codex. Fica na raiz da pasta do projeto (modelo abaixo, igual para os dois). Não faz parte da lista de arquivos do Project. |
 
 ### Estrutura mínima de cada arquivo
 - **INSTRUCOES.md:** perfil da pessoa (4 respostas) · como conversar · regras de entrega · "o projeto tem estes arquivos: ...".
@@ -43,21 +43,21 @@ Modelo do DECISOES.md:
 - v1 (26/10/2026): triagem inicial.
 ```
 
-## Se a pessoa roda no claude.ai
+## Se a pessoa roda no claude.ai ou no ChatGPT
 Oriente UMA etapa por vez (ou até 3 por mensagem em "Várias etapas juntas"), esperando "feito" a cada uma:
-1. Criar um **Project** para este site. Project é um espaço do claude.ai que guarda instruções e arquivos para todas as conversas de um mesmo assunto. Projects estão disponíveis em todos os planos, inclusive no grátis, que tem limite de cinco projetos (confira o limite atual na ajuda oficial do claude.ai, quando houver pesquisa).
+1. Criar um **Project** para este site. Project é um espaço que guarda instruções e arquivos para todas as conversas de um mesmo assunto; o claude.ai e o ChatGPT têm. Limites de projetos e de arquivos mudam por plano: confira na ajuda oficial de cada um, quando houver pesquisa.
 2. Abrir as instruções do Project e colar o texto do **INSTRUCOES.md**.
 3. Anexar os outros .md (SPEC, DESIGN, CONTEUDO, SEGURANCA, PLANO, DECISOES e, se houver, EMAIL) nos arquivos do Project.
 4. Abrir uma conversa nova DENTRO do Project e colar esta primeira mensagem, que a skill entrega pronta em bloco de código: "Leia os arquivos do projeto e me entregue o prompt final do site (versão atual)." A partir daí, o fluxo segue nessa conversa (um fluxo só, sem separar por área): o prompt final, os ajustes e as novas versões saem dela.
 5. Avisar: **arquivos anexados não se atualizam sozinhos.** Quando algo mudar (nova decisão, novo texto, tarefa concluída), a skill reentrega o(s) .md COMPLETO(S) afetado(s) com nova versão (v2, v3), mais DECISOES.md e PLANO.md; a pessoa substitui o arquivo antigo no Project (mesmo nome de arquivo; a versão aparece no título).
 Se a conversa nova dentro do Project não tiver a skill, os arquivos do Project bastam: o INSTRUCOES.md carrega as regras de entrega e os outros arquivos carregam o projeto.
 
-## Se a pessoa roda no Claude Code
-- Pasta do projeto com **CLAUDE.md na raiz** e os mesmos .md (de preferência numa subpasta `docs/`). O INSTRUCOES.md também vai para essa pasta, e o CLAUDE.md manda ler o INSTRUCOES.md no começo de cada sessão (assim o perfil da Caixinha 0 não se perde).
-- **Se a skill já roda DENTRO do Claude Code**, ela grava os arquivos direto na pasta do projeto (peça permissão e mostre a lista do que vai criar). A pessoa não copia nada.
-- **Se a skill roda fora** (claude.ai) e a pessoa vai usar o Claude Code: quem não usa terminal recebe UM prompt de preparação, em bloco de código, que pede ao Claude Code para criar a pasta, o CLAUDE.md e todos os arquivos, com o conteúdo de cada um já embutido no prompt. Explique em uma etapa: abrir uma pasta vazia no Claude Code e colar o prompt. Se o prompt ficar longo demais, divida em dois ou três prompts numerados.
+## Se a pessoa roda no Claude Code ou no Codex
+- Pasta do projeto com o arquivo de instruções na raiz (**CLAUDE.md** no Claude Code, **AGENTS.md** no Codex) e os mesmos .md (de preferência numa subpasta `docs/`). O INSTRUCOES.md também vai para essa pasta, e o arquivo de instruções manda ler o INSTRUCOES.md no começo de cada sessão (assim o perfil da Caixinha 0 não se perde).
+- **Se a skill já roda DENTRO do agente**, ela grava os arquivos direto na pasta do projeto (peça permissão e mostre a lista do que vai criar). A pessoa não copia nada.
+- **Se a skill roda fora** (no chat) e a pessoa vai usar um agente: quem não usa terminal recebe UM prompt de preparação, em bloco de código, que pede ao agente para criar a pasta, o arquivo de instruções e todos os arquivos, com o conteúdo de cada um já embutido no prompt. Explique em uma etapa: abrir uma pasta vazia no agente e colar o prompt. Se o prompt ficar longo demais, divida em dois ou três prompts numerados.
 
-Modelo mínimo do CLAUDE.md do site (entregue sem marcadores: troque o nome pelo real):
+Modelo mínimo do CLAUDE.md ou AGENTS.md do site (o conteúdo é o mesmo; entregue sem marcadores e troque o nome pelo real):
 
 ```
 # Projeto: Nome do Site
@@ -72,4 +72,4 @@ docs/INSTRUCOES.md (perfil da pessoa e regras de entrega) e docs/SPEC.md, DESIGN
 ```
 
 ## Um fluxo só
-Todo o processo (triagem, arquivos, prompt, ajustes) segue como UM fluxo, sem separar por área. No claude.ai, a triagem acontece num chat e, depois que os arquivos estão no Project, o trabalho continua na conversa de dentro do Project (passo 4). Ideias novas geram reentrega versionada.
+Todo o processo (triagem, arquivos, prompt, ajustes) segue como UM fluxo, sem separar por área. No claude.ai e no ChatGPT, a triagem acontece num chat e, depois que os arquivos estão no Project, o trabalho continua na conversa de dentro do Project (passo 4). Ideias novas geram reentrega versionada.

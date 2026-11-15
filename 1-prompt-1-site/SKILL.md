@@ -1,6 +1,6 @@
 ---
 name: 1-prompt-1-site
-description: "Cria sites completos a partir de um único prompt: faz a triagem (tipo de site, objetivo, visual, conteúdo, segurança e e-mail), gera os arquivos do projeto e entrega o prompt final que constrói o site. Use quando a pessoa pedir para criar um site, landing page, blog, catálogo, loja, cardápio, agendamento, página de vendas, portfólio, link na bio ou área de membros."
+description: "Cria sites completos a partir de um único prompt: faz a triagem (tipo de site, objetivo, visual, conteúdo, segurança e e-mail), gera os arquivos do projeto e entrega o prompt final que constrói o site. Use quando a pessoa pedir para criar um site, landing page, blog, catálogo, loja, cardápio, agendamento, página de vendas, portfólio, link na bio ou área de membros. Funciona no Claude (claude.ai e Claude Code) e no ChatGPT (Projects, Skills e Codex)."
 ---
 
 # 1 Prompt, 1 Site
@@ -11,6 +11,18 @@ Você conduz uma pessoa, passo a passo, da ideia ao prompt que constrói o site.
 1. A triagem do site (perguntas em caixinha).
 2. Os arquivos .md do projeto (INSTRUCOES, SPEC, DESIGN, CONTEUDO, SEGURANCA, PLANO, DECISOES e, se houver captação de e-mail, EMAIL).
 3. O PROMPT FINAL, num bloco de código, que cria o site.
+
+## Onde a skill está rodando
+A skill segue o padrão aberto de skills (pasta com `SKILL.md`) e funciona em quatro lugares. Descubra onde está pelo que o ambiente oferece; se não der para saber, use a resposta "Onde vai construir" da Caixinha 1.
+
+| Lugar | Como reconhecer | Arquivo de instruções do projeto | Onde os arquivos ficam |
+|---|---|---|---|
+| **claude.ai** | Chat do Claude, com Projects | INSTRUCOES.md nas instruções do Project | Arquivos do Project |
+| **Claude Code** | Agente com acesso à pasta, lê CLAUDE.md | **CLAUDE.md** na raiz | Pasta do projeto, em `docs/` |
+| **ChatGPT** | Chat do ChatGPT, com Projects | INSTRUCOES.md nas instruções do Project | Arquivos do Project |
+| **Codex** | Agente da OpenAI com acesso à pasta, lê AGENTS.md | **AGENTS.md** na raiz | Pasta do projeto, em `docs/` |
+
+Escreva para o lugar real: nos textos para a pessoa, use o nome do lugar dela ("cole no Codex", "abra o Project do ChatGPT"), nunca o de outra IA. Os detalhes de cada lugar estão em `references/04-arquivos-do-projeto.md`.
 
 ## Regras que valem sempre
 
@@ -23,7 +35,7 @@ Você conduz uma pessoa, passo a passo, da ideia ao prompt que constrói o site.
 
 **Não repita pergunta.** Se uma resposta já foi dada (na triagem geral ou no módulo), só confirme. Dado que a pessoa não tem agora vira Pendência (`references/03-regras-gerais.md`, seção 6), nunca marcador no bloco entregue.
 
-**Caixinha.** Use a ferramenta **AskUserQuestion** quando existir (1 a 4 perguntas por caixinha, 2 a 4 opções por pergunta, "Outro" sempre disponível). Sem a ferramenta, use **lista numerada** ("responda 1, 2..."), com as mesmas perguntas e opções. Perguntas de texto livre (nome, o que faz, cidade e público, páginas, contato) vão em texto, fora da caixinha. Mais de 4 opções: duas etapas.
+**Caixinha.** Use a ferramenta de perguntas com opções quando existir (no Claude, **AskUserQuestion**): de 1 a 4 perguntas por caixinha, de 2 a 4 opções por pergunta, "Outro" sempre disponível. Sem a ferramenta, use **lista numerada** ("responda 1, 2..."), com as mesmas perguntas e opções. Perguntas de texto livre (nome, o que faz, cidade e público, páginas, contato) vão em texto, fora da caixinha. Mais de 4 opções: duas etapas.
 
 **Entrega.** Siga as 14 regras de `references/00-perfil-e-entrega.md`, ajustadas pela Caixinha 0. As mais importantes:
 - Só envia o prompt ou o código final depois de resumir e perguntar "posso mandar?". Se a pessoa disser "manda", envia na hora.
@@ -34,7 +46,7 @@ Você conduz uma pessoa, passo a passo, da ideia ao prompt que constrói o site.
 
 **Fatos.** Preços em R$ e domínio .com como padrão. Com pesquisa disponível, confira na web antes de afirmar preço, versão, nome de ferramenta ou lei. Sem pesquisa, avise que pode estar desatualizado.
 
-**Um fluxo só**, do começo ao fim, sem separar por área (no claude.ai, depois que os arquivos entram no Project, o trabalho continua na conversa de dentro dele).
+**Um fluxo só**, do começo ao fim, sem separar por área (no claude.ai e no ChatGPT, depois que os arquivos entram no Project, o trabalho continua na conversa de dentro dele).
 
 ## Fluxo (siga a ordem; leia o arquivo de cada etapa quando chegar nela)
 
@@ -77,9 +89,9 @@ Releia a seção de lei de `references/03-regras-gerais.md`. Monte a lista dos a
 Resuma em lista curta o que a pessoa escolheu e o que ficou decidido sobre lei e conduta. Pergunte: "Posso mandar os arquivos do projeto?". O "manda" responde só a essa pergunta; o prompt final tem a sua própria na Etapa 7.
 
 ### Etapa 6. Arquivos do projeto
-Leia `references/04-arquivos-do-projeto.md`. Gere os .md completos e versionados (e o CLAUDE.md, no Claude Code) e oriente, uma etapa por vez (ou até 3, conforme o ritmo), como usá-los:
-- **claude.ai:** criar um Project por site, colar o INSTRUCOES.md nas instruções do Project, anexar os .md e abrir uma conversa nova DENTRO dele com a primeira mensagem pronta que a skill entrega. Arquivos anexados não se atualizam sozinhos: reentregue o .md completo (v2, v3).
-- **Claude Code:** pasta do projeto com CLAUDE.md na raiz e os mesmos .md. Se a skill já roda no Claude Code, grava direto; se não, entrega um prompt de preparação.
+Leia `references/04-arquivos-do-projeto.md`. Gere os .md completos e versionados (mais o CLAUDE.md no Claude Code, ou o AGENTS.md no Codex) e oriente, uma etapa por vez (ou até 3, conforme o ritmo), como usá-los:
+- **claude.ai ou ChatGPT:** criar um Project por site, colar o INSTRUCOES.md nas instruções do Project, anexar os .md e abrir uma conversa nova DENTRO dele com a primeira mensagem pronta que a skill entrega. Arquivos anexados não se atualizam sozinhos: reentregue o .md completo (v2, v3).
+- **Claude Code ou Codex:** pasta do projeto com o arquivo de instruções na raiz (CLAUDE.md ou AGENTS.md) e os mesmos .md. Se a skill já roda no agente, grava direto; se não, entrega um prompt de preparação.
 
 ### Etapa 7. Prompt final
 Leia `references/05-prompt-final.md` (e `references/07-fluxo-de-construcao.md`, que vai embutido no prompt). Pergunte "posso mandar o prompt final?" e só então envie, em UM bloco de código, já preenchido.
@@ -92,7 +104,7 @@ Se a pessoa colar um erro: correção direta com o arquivo completo e versão no
 - `references/01-triagem-geral.md`: Caixinhas 1, 2 e 3 e perguntas de texto livre.
 - `references/02-crescimento-email.md`: Caixinha 4 e regras de e-mail (captação e e-mails automáticos).
 - `references/03-regras-gerais.md`: regra de ouro, caixinha e fallback, base de segurança, base de lei.
-- `references/04-arquivos-do-projeto.md`: os .md do projeto e como usá-los no claude.ai e no Claude Code.
+- `references/04-arquivos-do-projeto.md`: os .md do projeto e como usá-los no claude.ai, no Claude Code, no ChatGPT e no Codex.
 - `references/05-prompt-final.md`: como montar o prompt gigante.
 - `references/06-design.md`: guia de design (tipografia, cor, espaço, movimento, responsivo, textos, anti-padrões).
 - `references/07-fluxo-de-construcao.md`: fluxo de construção embutido (spec, plano, construção aos poucos, teste, review, desempenho, lançamento).
@@ -101,7 +113,10 @@ Se a pessoa colar um erro: correção direta com o arquivo completo e versão no
 - `NOTICE.md`: créditos e licenças (Impeccable, de Paul Bakaus; agent-skills, de Addy Osmani).
 
 ## Se o ambiente recusar o nome da skill
-O nome `1-prompt-1-site` segue a regra (minúsculas, números e hífens). Se o claude.ai recusar por começar com número, o nome técnico alternativo é `um-prompt-um-site` (só quem mantém a skill troca; a skill não se renomeia sozinha).
+O nome `1-prompt-1-site` segue a regra (minúsculas, números e hífens). Se algum ambiente recusar por começar com número, o nome técnico alternativo é `um-prompt-um-site` (só quem mantém a skill troca; a skill não se renomeia sozinha).
+
+## Se o ambiente não aceitar skills
+Alguns planos não instalam skills (por exemplo, ChatGPT Plus e Pro no lançamento das Skills, em 2026). Nesse caso a pessoa cria um Project, anexa o `SKILL.md` e a pasta `references` como arquivos e cola nas instruções do Project: "Siga o SKILL.md anexado do começo ao fim, lendo os arquivos de references quando ele mandar." O fluxo é o mesmo.
 
 ## Créditos
 Ideias destiladas com palavras próprias de Impeccable (Paul Bakaus, Apache 2.0) e agent-skills (Addy Osmani, MIT). Detalhes em `NOTICE.md`.
